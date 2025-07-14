@@ -2,6 +2,46 @@
 <html lang="en">
 <head>
   <style>
+  :root {
+    --bg-color: #0d0d0d;
+    --text-color: #ffffff;
+  }
+
+  body.light-mode {
+    --bg-color: #f9f9f9;
+    --text-color: #121212;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.4s, color 0.4s;
+  }
+
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff22;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 999;
+    backdrop-filter: blur(6px);
+    transition: background 0.3s;
+  }
+
+  .theme-toggle:hover {
+    background: #ffffff55;
+  }
+
+  .theme-toggle img {
+    width: 24px;
+    height: 24px;
+  }
+</style>
+  <style>
   .floating-coins-container {
     position: fixed;
     top: 0;
@@ -70,6 +110,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- 🌙/☀️ Theme Toggle Button -->
+<button class="theme-toggle" onclick="toggleTheme()">
+  <img id="theme-icon" src="https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png" />
+</button>
   <div class="floating-coins-container">
   <!-- Bitcoin -->
   <div class="coin" style="left: 10%; animation-delay: 0s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg');"></div>
@@ -183,5 +227,27 @@
       <p>Crafted by Tobi. Based. Brave. Bullish.</p>
     </footer>
   </div>
+  <script>
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    document.getElementById('theme-icon').src = 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
+  }
+
+  function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+
+    icon.src = isLight
+      ? 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png'
+      : 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png';
+
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+</script>
 </body>
 </html>
