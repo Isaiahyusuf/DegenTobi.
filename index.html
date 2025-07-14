@@ -28,53 +28,72 @@
     </section>
 
     <section class="fade-in delay-3">
-      <h2>📡 Reach Out</h2>
-      <a href="https://t.me/y_olotobi" target="_blank" class="btn">Telegram</a>
-      <a href="https://x.com/garbajereniah" target="_blank" class="btn alt">Twitter (X)</a>
-      <div style="margin-top: 30px;">
-  <div style="display: flex; align-items: flex-start; gap: 30px; margin-top: 40px; flex-wrap: wrap;">
-  
-  <!-- Discord Button -->
-  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin-top: 40px;">
+  <h2>📡 Reach Out</h2>
+  <a href="https://t.me/y_olotobi" target="_blank" class="btn">Telegram</a>
+  <a href="https://x.com/garbajereniah" target="_blank" class="btn alt">Twitter (X)</a>
 
-  <!-- Discord Button -->
-  <div>
-    <a href="https://discord.gg/8hf7Uwxh" target="_blank"
-       style="background-color: #5865F2; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
-      💬 Discord
-    </a>
+  <!-- Discord + Payment Container -->
+  <div style="margin-top: 30px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px;">
+
+      <!-- Discord Button -->
+      <div>
+        <a href="https://discord.gg/8hf7Uwxh" target="_blank"
+           style="background-color: #5865F2; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
+          💬 Discord
+        </a>
+      </div>
+
+      <!-- Payment Methods -->
+      <div style="background: linear-gradient(135deg, #1e1e2f, #2a2a40); padding: 20px; border-radius: 15px; color: white; max-width: 100%; width: 350px;">
+        <h3 style="margin-bottom: 15px; color: #ffb347;">📦 Payment Methods</h3>
+
+        <div style="display: grid; gap: 12px;">
+
+          <button onclick="copyToClipboard('0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D')" style="background:#3c3c66; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+            <strong>Ethereum</strong><br>
+            <small>Tap to copy</small><br>
+            <span>0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D</span>
+          </button>
+
+          <button onclick="copyToClipboard('CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP')" style="background:#246bfd; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+            <strong>Solana</strong><br>
+            <small>Tap to copy</small><br>
+            <span>CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP</span>
+          </button>
+
+          <button onclick="copyToClipboard('bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn')" style="background:#f7931a; color:#000; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+            <strong>Bitcoin</strong><br>
+            <small>Tap to copy</small><br>
+            <span>bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn</span>
+          </button>
+
+          <button onclick="copyToClipboard('0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a')" style="background:#8a2be2; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+            <strong>SUI</strong><br>
+            <small>Tap to copy</small><br>
+            <span>0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a</span>
+          </button>
+
+        </div>
+
+        <!-- Copied Toast -->
+        <div id="copied-toast" style="display:none; margin-top:15px; color:#00ffae; font-weight:bold;">✅ Copied to clipboard</div>
+      </div>
+
+    </div>
   </div>
+</section>
 
-  <!-- Payment Methods -->
-  <div style="background: linear-gradient(135deg, #1e1e2f, #2a2a40); padding: 20px; border-radius: 15px; color: white; max-width: 100%; width: 350px;">
-    <h3 style="margin-bottom: 15px; color: #ffb347;">📦 Payment Methods</h3>
-
-    <div onclick="navigator.clipboard.writeText('0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D')" style="cursor: pointer; margin-bottom: 15px; padding: 10px; border-radius: 8px; background: #3c3c66;">
-      <strong style="color: #ecb390;">Ethereum:</strong><br>
-      <small>Tap to copy</small><br>
-      <span style="user-select: all;">0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D</span>
-    </div>
-
-    <div onclick="navigator.clipboard.writeText('CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP')" style="cursor: pointer; margin-bottom: 15px; padding: 10px; border-radius: 8px; background: #246bfd;">
-      <strong style="color: #fff;">Solana:</strong><br>
-      <small>Tap to copy</small><br>
-      <span style="user-select: all;">CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP</span>
-    </div>
-
-    <div onclick="navigator.clipboard.writeText('bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn')" style="cursor: pointer; margin-bottom: 15px; padding: 10px; border-radius: 8px; background: #f7931a;">
-      <strong style="color: #000;">Bitcoin:</strong><br>
-      <small>Tap to copy</small><br>
-      <span style="user-select: all;">bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn</span>
-    </div>
-
-    <div onclick="navigator.clipboard.writeText('0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a')" style="cursor: pointer; margin-bottom: 15px; padding: 10px; border-radius: 8px; background: #8a2be2;">
-      <strong style="color: #fff;">SUI:</strong><br>
-      <small>Tap to copy</small><br>
-      <span style="user-select: all;">0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a</span>
-    </div>
-  </div>
-</div>
-    </section>
+<!-- Paste this script just before your closing </body> tag -->
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById("copied-toast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 1500);
+    });
+  }
+</script>
 
     <footer class="fade-in delay-4">
       <p>Crafted by Tobi. Based. Brave. Bullish.</p>
