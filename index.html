@@ -35,26 +35,49 @@
   <div style="display: flex; align-items: flex-start; gap: 30px; margin-top: 40px; flex-wrap: wrap;">
   
   <!-- Discord Button -->
-  <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px; margin-top: 40px;">
+ <!-- Add this inside your <body> -->
+<div style="margin-top: 40px; max-width: 100%;">
 
-  <!-- Discord Button -->
-  <div>
-    <a href="https://discord.gg/8hf7Uwxh" target="_blank"
-       style="background-color: #5865F2; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
-      💬 Discord
-    </a>
+  <h3 style="color: #ffb347; margin-bottom: 15px;">📦 Payment Methods</h3>
+
+  <div style="display: grid; gap: 12px;">
+
+    <button onclick="copyToClipboard('0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D')" style="background:#3c3c66; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+      <strong>Ethereum</strong><br>
+      <small id="eth">0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D</small>
+    </button>
+
+    <button onclick="copyToClipboard('CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP')" style="background:#246bfd; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+      <strong>Solana</strong><br>
+      <small id="sol">CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP</small>
+    </button>
+
+    <button onclick="copyToClipboard('bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn')" style="background:#f7931a; color:#000; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+      <strong>Bitcoin</strong><br>
+      <small id="btc">bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn</small>
+    </button>
+
+    <button onclick="copyToClipboard('0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a')" style="background:#8a2be2; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
+      <strong>SUI</strong><br>
+      <small id="sui">0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a</small>
+    </button>
+
   </div>
 
-  <!-- Payment Methods -->
-  <div style="background-color: #1a1a1a; padding: 20px; border-radius: 12px; color: #f0f0f0; max-width: 100%; word-break: break-word;">
-    <h3 style="margin-bottom: 15px;">📦 Payment Methods</h3>
-    <p><strong>Ethereum:</strong><br> 0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D</p>
-    <p><strong>Solana:</strong><br> CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP</p>
-    <p><strong>Bitcoin:</strong><br> bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn</p>
-    <p><strong>SUI:</strong><br> 0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a</p>
-  </div>
-
+  <!-- Copied Toast -->
+  <div id="copied-toast" style="display:none; margin-top:15px; color:#00ffae; font-weight:bold;">✅ Copied to clipboard</div>
 </div>
+
+<!-- Paste this before closing </body> -->
+<script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById("copied-toast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 1500);
+    });
+  }
+</script>
     </section>
 
     <footer class="fade-in delay-4">
