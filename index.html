@@ -1,126 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style>
-  body {
-    background-color: #0d0d0d;
-    color: #ffffff;
-    transition: background-color 0.4s, color 0.4s;
-  }
-
-  body.light-mode {
-    background-color: #f4f4f4;
-    color: #121212;
-  }
-
-  .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 22px;
-    color: inherit;
-  }
-
-  .theme-toggle:hover {
-    opacity: 0.8;
-  }
-</style>
-  <style>
-  .floating-coins-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  .coin {
-    position: absolute;
-    width: 36px;
-    height: 36px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: floatCoin 18s linear infinite;
-    opacity: 0.4;
-  }
-
-  @keyframes floatCoin {
-    0% {
-      transform: translateY(100vh) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-100vh) rotate(360deg);
-    }
-  }
-</style>
-  <style>
-  .floating-coins-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  .coin {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/d/d0/Dogecoin_Logo.png'); /* Safe Doge logo */
-    background-size: cover;
-    animation: floatCoin 15s linear infinite;
-    opacity: 0.5;
-  }
-
-  @keyframes floatCoin {
-    0% {
-      transform: translateY(100vh) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-100vh) rotate(360deg);
-    }
-  }
-</style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tobi – Crypto Strategist</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Existing styles -->
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      transition: background-color 0.4s, color 0.4s;
+    }
+    body.light-mode {
+      background-color: #f4f4f4;
+      color: #121212;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 22px;
+      color: inherit;
+    }
+    .theme-toggle:hover {
+      opacity: 0.8;
+    }
+    .floating-coins-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .coin {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      animation: floatCoin 15s linear infinite;
+      opacity: 0.5;
+    }
+    @keyframes floatCoin {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
+      }
+    }
+
+    /* 👇 Tap Game Styles */
+    .game-container {
+      text-align: center;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 255, 204, 0.2);
+      max-width: 400px;
+      margin: 30px auto;
+    }
+    .game-container p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    button#tapButton,
+    button#restartButton {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button#tapButton:hover,
+    button#restartButton:hover {
+      background-color: #00ddb3;
+    }
+    #endMessage {
+      color: #ffd700;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
   <!-- 🌙/☀️ Theme Toggle Button -->
-<button class="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn">🌙</button>
-  <div class="floating-coins-container">
-  <!-- Bitcoin -->
-  <div class="coin" style="left: 10%; animation-delay: 0s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg');"></div>
-  <div class="coin" style="left: 60%; animation-delay: 3s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg');"></div>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn">🌙</button>
 
-  <!-- Ethereum -->
-  <div class="coin" style="left: 25%; animation-delay: 1.5s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg');"></div>
-  <div class="coin" style="left: 75%; animation-delay: 5s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg');"></div>
-
-  <!-- Solana -->
-  <!-- Solana -->
-<div class="coin" style="left: 40%; animation-delay: 2.5s; background-image: url('https://cryptologos.cc/logos/solana-sol-logo.png?v=026');"></div>
-<div class="coin" style="left: 85%; animation-delay: 4s; background-image: url('https://cryptologos.cc/logos/solana-sol-logo.png?v=026');"></div>
-</div>
+  <!-- Floating coins -->
   <div class="floating-coins-container">
-  <div class="coin" style="left: 10%; animation-delay: 0s;"></div>
-  <div class="coin" style="left: 30%; animation-delay: 5s;"></div>
-  <div class="coin" style="left: 50%; animation-delay: 10s;"></div>
-  <div class="coin" style="left: 70%; animation-delay: 3s;"></div>
-  <div class="coin" style="left: 90%; animation-delay: 7s;"></div>
-</div>
+    <div class="coin" style="left: 10%; animation-delay: 0s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg');"></div>
+    <div class="coin" style="left: 60%; animation-delay: 3s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg');"></div>
+    <div class="coin" style="left: 25%; animation-delay: 1.5s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg');"></div>
+    <div class="coin" style="left: 75%; animation-delay: 5s; background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg');"></div>
+    <div class="coin" style="left: 40%; animation-delay: 2.5s; background-image: url('https://cryptologos.cc/logos/solana-sol-logo.png?v=026');"></div>
+    <div class="coin" style="left: 85%; animation-delay: 4s; background-image: url('https://cryptologos.cc/logos/solana-sol-logo.png?v=026');"></div>
+  </div>
+
   <div class="wrapper">
     <header class="fade-in">
       <h1>Tobi</h1>
@@ -141,95 +130,125 @@
       </ul>
     </section>
 
+    <!-- 👇 Tap Game Injected -->
+    <section class="fade-in delay-2">
+      <h2>🎮 Tap Frenzy</h2>
+      <p>Test your degen fingers – tap the button as fast as you can in 10 seconds!</p>
+      <div class="game-container">
+        <p>⏱ Time Left: <span id="time">10</span>s</p>
+        <p>🎯 Score: <span id="score">0</span></p>
+        <button id="tapButton">TAP ME!</button>
+        <p id="endMessage"></p>
+        <button id="restartButton" style="display:none;">Restart</button>
+      </div>
+    </section>
+
     <section class="fade-in delay-3">
-  <h2>📡 Reach Out</h2>
-  <a href="https://t.me/y_olotobi" target="_blank" class="btn">Telegram</a>
-  <a href="https://x.com/garbajereniah" target="_blank" class="btn alt">Twitter (X)</a>
+      <h2>📡 Reach Out</h2>
+      <a href="https://t.me/y_olotobi" target="_blank" class="btn">Telegram</a>
+      <a href="https://x.com/garbajereniah" target="_blank" class="btn alt">Twitter (X)</a>
 
-  <!-- Discord + Payment Container -->
-  <div style="margin-top: 30px;">
-    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px;">
+      <div style="margin-top: 30px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 30px;">
+          <div>
+            <a href="https://discord.gg/8hf7Uwxh" target="_blank"
+               style="background-color: #5865F2; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
+              💬 Discord
+            </a>
+          </div>
 
-      <!-- Discord Button -->
-      <div>
-        <a href="https://discord.gg/8hf7Uwxh" target="_blank"
-           style="background-color: #5865F2; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">
-          💬 Discord
-        </a>
-      </div>
-
-      <!-- Payment Methods -->
-      <div style="background: linear-gradient(135deg, #1e1e2f, #2a2a40); padding: 20px; border-radius: 15px; color: white; max-width: 100%; width: 350px;">
-        <h3 style="margin-bottom: 15px; color: #ffb347;">📦 Payment Methods</h3>
-
-        <div style="display: grid; gap: 12px;">
-
-          <button onclick="copyToClipboard('0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D')" style="background:#3c3c66; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
-            <strong>Ethereum</strong><br>
-            <small>Tap to copy</small><br>
-            <span>0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D</span>
-          </button>
-
-          <button onclick="copyToClipboard('CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP')" style="background:#246bfd; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
-            <strong>Solana</strong><br>
-            <small>Tap to copy</small><br>
-            <span>CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP</span>
-          </button>
-
-          <button onclick="copyToClipboard('bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn')" style="background:#f7931a; color:#000; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
-            <strong>Bitcoin</strong><br>
-            <small>Tap to copy</small><br>
-            <span>bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn</span>
-          </button>
-
-          <button onclick="copyToClipboard('0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a')" style="background:#8a2be2; color:#fff; border:none; padding:12px; border-radius:10px; text-align:left; cursor:pointer; font-family:inherit;">
-            <strong>SUI</strong><br>
-            <small>Tap to copy</small><br>
-            <span>0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a</span>
-          </button>
-
+          <div style="background: linear-gradient(135deg, #1e1e2f, #2a2a40); padding: 20px; border-radius: 15px; color: white; max-width: 100%; width: 350px;">
+            <h3 style="margin-bottom: 15px; color: #ffb347;">📦 Payment Methods</h3>
+            <div style="display: grid; gap: 12px;">
+              <button onclick="copyToClipboard('0xCeC003EdB2B865499fd9867759B6Ca53f7A79D8D')" style="background:#3c3c66; color:#fff;">Ethereum</button>
+              <button onclick="copyToClipboard('CTwCFhJ9mLLQ3WzBrPaFPWTvQEEGu9u9ce79uEN2qYZP')" style="background:#246bfd; color:#fff;">Solana</button>
+              <button onclick="copyToClipboard('bc1p69jm77ey53v3p4ca98p7kt8w8mufxpksy0kp6j37etatg4vpvsgq5ev6mn')" style="background:#f7931a; color:#000;">Bitcoin</button>
+              <button onclick="copyToClipboard('0x166f64f533d230bb23fcdfbb21953194ed79c8ddc0abd1fdf1afb7252bf65b4a')" style="background:#8a2be2; color:#fff;">SUI</button>
+            </div>
+            <div id="copied-toast" style="display:none; margin-top:15px; color:#00ffae; font-weight:bold;">✅ Copied to clipboard</div>
+          </div>
         </div>
-
-        <!-- Copied Toast -->
-        <div id="copied-toast" style="display:none; margin-top:15px; color:#00ffae; font-weight:bold;">✅ Copied to clipboard</div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Paste this script just before your closing </body> tag -->
-<script>
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      const toast = document.getElementById("copied-toast");
-      toast.style.display = "block";
-      setTimeout(() => toast.style.display = "none", 1500);
-    });
-  }
-</script>
+    </section>
 
     <footer class="fade-in delay-4">
       <p>Crafted by Tobi. Based. Brave. Bullish.</p>
     </footer>
   </div>
+
+  <!-- Tap Game Script -->
   <script>
-  // Load saved theme
-  const savedTheme = localStorage.getItem("theme");
-  const body = document.body;
-  const btn = document.getElementById("themeToggleBtn");
+    let timeLeft = 10;
+    let score = 0;
+    let timer;
+    let gameActive = false;
 
-  if (savedTheme === "light") {
-    body.classList.add("light-mode");
-    btn.innerText = "☀️";
-  }
+    const timeDisplay = document.getElementById("time");
+    const scoreDisplay = document.getElementById("score");
+    const tapButton = document.getElementById("tapButton");
+    const endMessage = document.getElementById("endMessage");
+    const restartButton = document.getElementById("restartButton");
 
-  function toggleTheme() {
-    body.classList.toggle("light-mode");
-    const isLight = body.classList.contains("light-mode");
-    localStorage.setItem("theme", isLight ? "light" : "dark");
-    btn.innerText = isLight ? "☀️" : "🌙";
-  }
-</script>
+    function startGame() {
+      gameActive = true;
+      score = 0;
+      timeLeft = 10;
+      scoreDisplay.textContent = score;
+      timeDisplay.textContent = timeLeft;
+      endMessage.textContent = "";
+      restartButton.style.display = "none";
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timeDisplay.textContent = timeLeft;
+        if (timeLeft === 0) {
+          clearInterval(timer);
+          gameActive = false;
+          endMessage.textContent = `⏰ Time’s up! Your final score is ${score}`;
+          restartButton.style.display = "inline-block";
+        }
+      }, 1000);
+    }
+
+    tapButton.addEventListener("click", () => {
+      if (!gameActive) {
+        startGame();
+      } else {
+        score++;
+        scoreDisplay.textContent = score;
+      }
+    });
+
+    restartButton.addEventListener("click", startGame);
+  </script>
+
+  <!-- Copy to clipboard -->
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById("copied-toast");
+        toast.style.display = "block";
+        setTimeout(() => toast.style.display = "none", 1500);
+      });
+    }
+  </script>
+
+  <!-- Theme toggle -->
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    const body = document.body;
+    const btn = document.getElementById("themeToggleBtn");
+    if (savedTheme === "light") {
+      body.classList.add("light-mode");
+      btn.innerText = "☀️";
+    }
+
+    function toggleTheme() {
+      body.classList.toggle("light-mode");
+      const isLight = body.classList.contains("light-mode");
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      btn.innerText = isLight ? "☀️" : "🌙";
+    }
+  </script>
 </body>
 </html>
